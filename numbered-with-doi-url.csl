@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>Numbered with DOI as URL</title>
+    <id>http://www.zotero.org/styles/numbered-with-doi-url</id>
+    <link href="http://www.zotero.org/styles/numbered-with-doi-url" rel="self"/>
+    <author>
+      <name>OpenAI Assistant</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="generic-base"/>
+    <updated>2025-07-26T00:00:00+00:00</updated>
+    <summary>Numeric style with brackets and DOI displayed as a full URL (https://doi.org/...)</summary>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name and="text" initialize-with="." delimiter=", "/>
+      <label form="short" prefix=" (" suffix=")" text-case="lowercase"/>
+    </names>
+  </macro>
+
+  <macro name="access">
+    <text variable="DOI" prefix="https://doi.org/"/>
+  </macro>
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography et-al-min="6" et-al-use-first="3" second-field-align="flush">
+    <layout hanging-indent="true" delimiter=". ">
+      <text variable="citation-number" prefix="[" suffix="]"/>
+      <text macro="author" suffix=". "/>
+      <text variable="title" suffix=". "/>
+      <group delimiter=". ">
+        <text variable="container-title"/>
+        <text variable="volume"/>
+        <text variable="page"/>
+        <text variable="issued" form="text"/>
+      </group>
+      <text macro="access" prefix=". DOI: "/>
+    </layout>
+  </bibliography>
+</style>
